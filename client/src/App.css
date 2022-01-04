@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(0,0,0,.05);
+}
+
+h1 {
+  color: red;
+}
+
+.container {
+  margin-top: 5rem;
+}
