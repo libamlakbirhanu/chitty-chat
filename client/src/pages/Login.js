@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
 import signinImage from "../assets/signup.jpg";
 
+const initialState = {
+  username: '',
+  password: ''
+}
+
 export default function Register() {
-  const handleChange = () => {};
+  const [form, setForm] = useState(initialState);
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div className="auth__form-container">
       <div className="auth__form-container_fields">
         <div className="auth__form-container_fields-content">
-          {/* <img src={signinImage} alt="" /> */}
           <p>Sign in</p>
-          <form onSubmit={() => {}}>
+          <form onSubmit={handleSubmit}>
             <div className="auth__form-container_fields-content_input">
               <label htmlFor="username">Username</label>
               <input
@@ -35,14 +45,20 @@ export default function Register() {
                 required
               />
             </div>
+            <div className="auth__form-container_fields-content_button">
+              <button>Login</button>
+            </div>
           </form>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <p>Already have an account? </p>
-            <p>
-              <Link to="/login">Login</Link>
-            </p>
+          <div className="auth__form-container_fields-account">
+            <p>Don't have an account? </p>
+            <span>
+              <Link to="/register">Register</Link>
+            </span>
           </div>
         </div>
+      </div>
+      <div className="auth__form-container_image">
+        <img src={signinImage} alt="sign in" />
       </div>
     </div>
   );
