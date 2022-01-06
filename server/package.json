@@ -1,0 +1,37 @@
+{
+  "name": "chit-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libamlakbirhanu/chitty-chat.git"
+  },
+  "keywords": [
+    "group",
+    "chat",
+    "direct",
+    "messaging"
+  ],
+  "author": "Libamlak Birhanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/libamlakbirhanu/chitty-chat/issues"
+  },
+  "homepage": "https://github.com/libamlakbirhanu/chitty-chat#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "getstream": "^7.4.1",
+    "nodemon": "^2.0.15",
+    "stream-chat": "^5.1.1",
+    "twilio": "^3.72.0"
+  }
+}
