@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
-const StreamChat = require('stream-chat');
+const StreamChat = require('stream-chat').StreamChat;
 const { connect } = require('getstream');
 
 const api_key = process.env.STREAM_API_KEY;
@@ -37,9 +37,12 @@ exports.login = async (req, res) => {
 		const token = serverClient.createUserToken(users[0].id);
 
 		if (success)
-			res
-				.status(200)
-				.json({ token, fullname: users[0].fullname, userID: users[0].id });
+			res.status(200).json({
+				token,
+				fullname: users[0].fullname,
+				username: users[0].username,
+				userID: users[0].id,
+			});
 		else res.status(500).json({ message: 'something went wrong' });
 	} catch (err) {
 		console.log(err);
